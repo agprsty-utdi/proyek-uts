@@ -16,11 +16,11 @@ class RegisterSiswaController extends Controller
         $search = request()->get('search');
         $p = RegisterSiswa::paginate();
 
-        $mstPangkat = DB::table('register_siswas')
+        $registerSiswa = DB::table('register_siswas')
             ->where('nama','LIKE','%'.$search.'%')
             ->paginate($p->perPage());
 
-        return view('mst-pangkat.index', compact('mstPangkat'))
+        return view('registerPangkat.index', compact('registerSiswa'))
         ->with('i', (request()->input('page', 1) - 1) * $p->perPage());
     }
 
