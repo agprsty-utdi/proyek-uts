@@ -12,6 +12,11 @@ Build a simple laravel application development environment with docker-compose.
 email: agung.prasetyo@students.utdi.ac.id
 pass: 1234qwer
 
+## HOW TO USE
+
+- docker compose start
+- git pull origin master
+
 ## Requirement
 - Docker ^19.*
 
