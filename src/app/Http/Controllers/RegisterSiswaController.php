@@ -20,7 +20,7 @@ class RegisterSiswaController extends Controller
             ->where('nama','LIKE','%'.$search.'%')
             ->paginate($p->perPage());
 
-        return view('registerPangkat.index', compact('registerSiswa'))
+        return view('register-siswa.index', compact('registerSiswa'))
         ->with('i', (request()->input('page', 1) - 1) * $p->perPage());
     }
 
