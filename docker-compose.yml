@@ -1,0 +1,59 @@
+version: "3.9"
+
+networks:
+  proyek_uts:
+    name: proyek_uts
+
+services:
+  app:
+    container_name: proyek_uts-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - mysql
+    networks:
+      - proyek_uts
+
+  mysql:
+    container_name: proyek_uts-mysql
+    image: mysql:8.0
+    restart: always
+    volumes:
+      - ./docker/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=proyek_uts
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+      - MYSQL_ROOT_PASSWORD=admin
+    ports:
+      - "3306:3306"
+    networks:
+      - proyek_uts
+
+  web:
+    container_name: proyek_uts-web
+    image: nginx:stable-alpine
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./src:/var/www/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - proyek_uts
+
+  phpmyadmin:
+    container_name: proyek_uts-phpmyadmin
+    image: phpmyadmin:latest
+    restart: always
+    ports:
+      - "81:80"
+    depends_on:
+      - mysql
+    links:
+      - "mysql:db"
+    networks:
+      - proyek_uts
