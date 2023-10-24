@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('register_siswas', function (Blueprint $table) {
-            $table->integer("no_pendaftaran")->primary();
+            $table->unsignedBigInteger("no_pendaftaran")->length(6)->autoIncrement();
             $table->string("nama");
             $table->string("alamat");
             $table->date("tanggal_lahir");

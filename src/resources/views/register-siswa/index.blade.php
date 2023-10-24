@@ -60,17 +60,17 @@ align-items: center;">
                                             <td>{{ $registerSiswas->nama }}</td>
                                             <td>{{ $registerSiswas->nilai_ind }}</td>
                                             <td>{{ $registerSiswas->nilai_mtk }}</td>
-                                            <td>{{ $registerSiswas->nilai_api }}</td>
+                                            <td>{{ $registerSiswas->nilai_ipa }}</td>
                                             <td>{{ $registerSiswas->total_nilai }}</td>
                                             <td>
                                                 <form
-                                                    action="{{ route('daftar-siswa.destroy', $registerSiswas->id) }}"
+                                                    action="{{ route('daftar-siswa.destroy', $registerSiswas->no_pendaftaran) }}"
                                                     method="POST">
                                                     <a class="btn btn-sm btn-primary "
-                                                        href="{{ route('daftar-siswa.show', $registerSiswas->id) }}">
+                                                        href="{{ route('daftar-siswa.show', $registerSiswas->no_pendaftaran) }}">
                                                         <i class="fa fa-fw fa-eye"></i> Lihat</a>
                                                     <a class="btn btn-sm btn-success"
-                                                        href="{{ route('daftar-siswa.edit', $registerSiswas->id) }}">
+                                                        href="{{ route('daftar-siswa.edit', $registerSiswas->no_pendaftaran) }}">
                                                         <i class="fa fa-fw fa-edit"></i> Ubah</a>
                                                     @csrf
                                                     @method('DELETE')

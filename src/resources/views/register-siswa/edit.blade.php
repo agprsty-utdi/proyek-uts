@@ -1,11 +1,11 @@
 @extends('adminlte::page')
-@section('title', 'Master Pangkat')
+@section('title', 'Daftar Siswa')
 @section('content_header')
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/home">Home</a></li>
-            <li class="breadcrumb-item"><a href="/mst-pangkat">
-                    Tabel Master Pangkat</a></li>
+            <li class="breadcrumb-item"><a href="/daftar-siswa">
+                    Daftar Siswa</a></li>
             <li class="breadcrumb-item active" aria-current="page">Ubah</li>
         </ol>
     </nav>
@@ -18,16 +18,17 @@
                 <div class="card card-default">
                     <div class="card-header">
                         <span class="card-title">
-                            <h3>Mengubah Tabel Master Pangkat</h3>
+                            <h3>Mengubah Daftar Siswa</h3>
                         </span>
                     </div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('mst-pangkat.update', $mstPangkat->id) }}" role="form"
+                        <form method="POST" action="{{ route('daftar-siswa.update', $registerSiswa->no_pendaftaran) }}"
+                            role="form"
                             enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
-                            @include('mst-pangkat.form')
+                            @include('register-siswa.form')
                         </form>
                     </div>
                 </div>

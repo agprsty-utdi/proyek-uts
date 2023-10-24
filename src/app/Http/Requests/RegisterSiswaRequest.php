@@ -22,17 +22,16 @@ class RegisterSiswaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'no_pendaftaran' => 'required|digits:6',
             'nama' => 'required',
             'alamat' => 'required',
-            'tanggal_lahir' => 'required',
-            'jenis_kelamin' => 'required',
-            'asal_sekolah' => 'required',
-            'agama' => 'required',
-            'nilai_ind' => 'required',
-            'nilai_ipa' => 'required',
-            'nilai_mtk' => 'required',
-            'total_nilai' => 'required',
+            'tanggal_lahir' => 'nullable',
+            'jenis_kelamin' => 'nullable',
+            'asal_sekolah' => 'nullable',
+            'agama' => 'nullable',
+            'nilai_ind' => 'nullable',
+            'nilai_ipa' => 'nullable',
+            'nilai_mtk' => 'nullable',
+            'total_nilai' => 'nullable',
         ];
     }
 }
